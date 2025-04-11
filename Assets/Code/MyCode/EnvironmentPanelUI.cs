@@ -11,7 +11,6 @@ public class EnvironmentPanelUI : MonoBehaviour
     [SerializeField] private Button deleteButton;
     [SerializeField] private Button openButton;
 
-    //private string environmentName;
     private string environmentId;
 
     public Action<string> OnDeleteClicked;
