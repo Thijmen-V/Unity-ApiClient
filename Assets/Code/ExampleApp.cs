@@ -336,21 +336,31 @@ public class ExampleApp : MonoBehaviour
             NewEnvironmentStatus_Txt.text = "Dit environment bestaat al!";
             return;
         }
+        if (environment2D.maxLength < 20 || environment2D.maxLength > 200)
+        {
+            Debug.Log("De lengte moet tussen de 20 en 200 zijn!");
+            NewEnvironmentStatus_Txt.text = "De lengte moet tussen de 20 en 200 zijn!";
+            return;
+        }
+        else if (environment2D.maxHeight < 10 || environment2D.maxHeight > 100)
+        {
+            Debug.Log("De hoogte moet tussen de 10 en 100 zijn!");
+            NewEnvironmentStatus_Txt.text = "De hoogte moet tussen de 10 en 100 zijn!";
+            return;
+        }
 
         IWebRequestReponse webRequestResponse = await enviroment2DApiClient.CreateEnvironment(environment2D);
-
         switch (webRequestResponse)
         {
             case WebRequestData<Environment2D> dataResponse:
                 environment2D.id = dataResponse.Data.id;
                 Debug.Log("Create environment2D succes!");
                 GoToHomePage();
-                // TODO: Handle succes scenario.
                 break;
             case WebRequestError errorResponse:
                 string errorMessage = errorResponse.ErrorMessage;
                 Debug.Log("Create environment2D error: " + errorMessage);
-                NewEnvironmentStatus_Txt.text = errorMessage + " \n Mogelijke oplossingen: \n Is de naam tussen 1 en 25 karakters? \n Is de lengte tussen 20 en 75? \n Is de hoogte tussen 10 en 75? \n Heb je al 5 environments? ";
+                NewEnvironmentStatus_Txt.text = errorMessage + " \n Mogelijke oplossingen: \n Is de naam tussen 1 en 25 karakters? \n Heb je al 5 environments? ";
                 break;
             default:
                 throw new NotImplementedException("No implementation for webRequestResponse of class: " + webRequestResponse.GetType());
