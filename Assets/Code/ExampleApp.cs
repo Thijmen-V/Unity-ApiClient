@@ -44,16 +44,6 @@ public class ExampleApp : MonoBehaviour
         NewEnvironmentStatus_Txt.text = "";
         ReadEnvironmentsStatus_Txt.text = "";
 
-        //LATER WEGHALEN!!!
-
-        //Inlog voor Azure
-        //emailInputField.text = "papa@test.nl";
-        //passwordInputField.text = "Vietnam!2025";
-
-        //Inlog voor localhost
-        emailInputField.text = "test@test.nl";
-        passwordInputField.text = "Wachtwoord123!";
-
         if (EnvironmentDataHolder.Instance != null && EnvironmentDataHolder.Instance.returningFromBuilder)
         {
             Home_Panel.SetActive(true);
