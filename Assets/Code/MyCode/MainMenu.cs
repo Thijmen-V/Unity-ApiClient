@@ -10,8 +10,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button xPlus, xMin, yPlus, yMin;
 
     private int xSize = 20, ySize = 10;  // Standaardwaarden
-    private const int xMinValue = 20, xMaxValue = 75;
-    private const int yMinValue = 10, yMaxValue = 75;
+    private const int xMinValue = 20, xMaxValue = 200;
+    private const int yMinValue = 10, yMaxValue = 100;
 
     void Start()
     {
